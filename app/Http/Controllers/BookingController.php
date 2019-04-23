@@ -14,7 +14,9 @@ class BookingController extends Controller
         $room = Room::availableForRequest($request)
         ->findOrFail($roomId);
         
-        return $room->bookings()->create($this->getBookingData($request, $room->price_per_night));
+        $room->bookings()->create($this->getBookingData($request, $room->price_per_night));
+
+        return redirect('profile/my-bookings');
     }
 
     private function getBookingData(BookingRequest $request, $pricePerNight) 
