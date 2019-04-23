@@ -1,0 +1,1 @@
+@include('rooms._images')
