@@ -1,4 +1,4 @@
-After cloning this repository. Copy `.env.example` to `.env` and configure your database, then follow the instruction given bellow.
+After cloning (`https://github.com/mrabbani/hotelbooking.git`) this repository. Copy `.env.example` to `.env` and configure your database, then follow the instruction given bellow.
 
     composer install
     php artisan migrate
