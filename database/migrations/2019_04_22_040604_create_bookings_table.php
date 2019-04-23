@@ -20,7 +20,7 @@ class CreateBookingsTable extends Migration
             $table->timestamp('check_in');
             $table->timestamp('check_out');
             $table->double('price_per_night');
-            $table->json('properties')->nullable();
+            $table->text('properties')->nullable();
             $table->integer('payment_status')->default(0)->comment('0=Unpaid, 1=Paid');
             $table->integer('status')->default(0)->comment('0=Pending, 1=Booked, 3=Cancelled');
             $table->integer('updated_by')->nullable();

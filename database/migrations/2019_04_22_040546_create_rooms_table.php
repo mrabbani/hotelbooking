@@ -24,7 +24,7 @@ class CreateRoomsTable extends Migration
             $table->string('apartment_description')->nullable()->comment('e.i 2 bedroom; 3 bed; 1 bath');
             $table->string('check_in_process')->nullable()->comment('e.i Self check in at any time');
             $table->text('description')->nullable()->comment('e.i One newly furnished private room with its own balcony and shared kitchen ....');
-            $table->json('other_info')->nullable();
+            $table->text('other_info')->nullable();
 
             $table->string('contact_person')->nullable();
             $table->string('contact_email')->nullable();
