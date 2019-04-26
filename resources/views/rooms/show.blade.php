@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="media-body">
                                     <h5 class="mb-0 ">About Apparments</h5>
-                                    <span class="opc-75"> {{$room->apartment_description }}</span>
+                                    <span class="opc-75"> {{ $room->apartment_description }}</span>
                                 </div>
                             </div>
                             <div class="media opc-80 mt-2">

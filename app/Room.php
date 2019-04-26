@@ -133,6 +133,11 @@ class Room extends Model
         return $this->hotel->name ?? '';
     }
 
+    public function getAccommodationAttribute($value)
+    {
+        return $value ?? $this->apartment_description ?? '';
+    }
+
     public function getTotalCharge($nights) 
     {
         return $this->price_per_night * $nights;

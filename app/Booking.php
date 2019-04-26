@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User;
+use Carbon\Carbon;
 
 class Booking extends Model
 {
@@ -18,7 +20,6 @@ class Booking extends Model
         'check_in',
         'check_out',
         'price_per_night',
-        'properties',
         'properties',
     ];
 
@@ -67,5 +68,27 @@ class Booking extends Model
     public function getInvoiceIdAttribute()
     {
         return str_pad('' .$this->id, 4, '0', STR_PAD_LEFT);
+    }
+
+    public function getPropertiesAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getNights() 
+    {
+        $count  = Carbon::parse($this->check_in)->diffInDays(Carbon::parse($this->check_out));
+
+        return $count ?: 1;
+    }
+
+    public function getTotalChargeAttribute($value)
+    {
+        return $this->price_per_night * $this->getNights();
     }
 }

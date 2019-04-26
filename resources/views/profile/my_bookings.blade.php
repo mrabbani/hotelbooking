@@ -1,13 +1,23 @@
 @extends('layouts.master', ['pageTitle' => 'My Bookings'])
 
-@section('style')
+@section('styles')
 <style>
 @media print {
     body , body>div, #app{
         background-color: white !important;
     }
-    
 }
+
+    .guest-title { 
+        width:100%; 
+        text-align:center; 
+        border-bottom: 1px solid #dee2e6; 
+        line-height: 0.1em; margin:10px 0 20px; 
+    } 
+    .guest-title span { 
+        background:#fff; 
+        padding: 0 10px; 
+    }
 </style>    
 @endsection
 @section('content')
@@ -64,6 +74,9 @@
                                                     <i class="fa fa-cog"></i>
                                                 </a>
                                                 <div class="dropdown-menu">
+                                                    <a href="#" class="dropdown-item print-invoice" data-targetId="bookingInvoice{{$booking->id}}"  class="btn btn-info btn-sm">
+                                                        Print Invoice
+                                                    </a>
                                                     <a class="dropdown-item" href="{{url('rooms/' . $booking->room->id)}}" class="btn btn-info btn-sm">
                                                         Room Details
                                                     </a>
@@ -90,7 +103,25 @@
             </div>
         </div>
     </div>
-    {{-- @foreach($bookingList as $booking)
+    @foreach($bookingList as $booking)
         @include('profile._booking_invoice')
-    @endforeach --}}
+    @endforeach
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('.print-invoice').click(function(e) {
+            e.preventDefault();
+            var selectorId = $(this).attr('data-targetId');
+            $('.booking-invoice').removeClass('d-print-block');
+            $('.booking-invoice').addClass('d-print-none');
+
+            $('#' + selectorId).removeClass('d-print-none')
+            $('#' + selectorId).addClass('d-print-block')
+
+            window.print();
+        })
+    })
+</script>
 @endsection
