@@ -63,4 +63,9 @@ class Booking extends Model
 
         return $labels[$this->payment_status] ?? '';
     }
+
+    public function getInvoiceIdAttribute()
+    {
+        return str_pad('' .$this->id, 4, '0', STR_PAD_LEFT);
+    }
 }

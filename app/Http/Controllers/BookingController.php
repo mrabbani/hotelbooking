@@ -12,7 +12,7 @@ class BookingController extends Controller
     public function store($roomId, BookingRequest $request)
     {
         $room = Room::availableForRequest($request)
-        ->findOrFail($roomId);
+            ->findOrFail($roomId);
         
         $room->bookings()->create($this->getBookingData($request, $room->price_per_night));
 

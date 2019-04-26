@@ -25,7 +25,13 @@ class ProfileController extends Controller
 
     public function myBookings(Request $request)
     {
-        $bookingList = $request->user()->bookings()->latest()->paginate();
+        $bookingQuery = $request->user()->bookings();
+        
+        if ($request->booking_id) {
+            $bookingQuery = $bookingQuery->where('id', (int) $request->booking_id);
+        }
+
+        $bookingList = $bookingQuery->latest()->paginate();
         $user = $request->user();
 
         return view('profile.my_bookings', compact('bookingList', 'user'));
