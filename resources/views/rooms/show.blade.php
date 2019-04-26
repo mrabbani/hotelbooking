@@ -86,28 +86,35 @@
                             <h5 class="card-title">
                                 <span  class="text-monospace">BDT {{ $room->price_per_night }}</span>
                             <sub class="text-muted">per nigth</sub> </h5>
+                            
                             @if($bookingInfo ?? null)
                                 <div class="card-subtitle mb-2 text-muted">
                                     {{Carbon\Carbon::parse($bookingInfo['check_in'] )->format('M d')}} -
                                     {{Carbon\Carbon::parse($bookingInfo['check_out'])->format('M d')}}
                                 </div>
                             @endif
-                            <div class="card-text border-top pt-2">
-                                <ul class="list-group list-group-flush">
-                                <li class="list-group-item p-2">Audult <span class="float-right"> {{ $bookingInfo['adult'] ?? 0 }}</span></li>
-                                    <li class="list-group-item p-2">Child <span class="float-right"> {{ $bookingInfo['child'] ?? 0 }}</span></li>
-                                    <li class="list-group-item p-2">No of Nights <span class="float-right"> {{ $bookingInfo['nights'] ?? 0}}</span></li>
-                                    <li class="list-group-item p-2">Total Charge <strong class="float-right"> {{ $room->getTotalCharge($bookingInfo['nights']) ?? 0}}</strong></li>
-                                </ul>
-                            </div>
-                            <div class="card-text pt-2">
-                                @if($bookingInfo ?? null)
+
+                            @if($bookingInfo ?? null)
+                                <div class="card-text border-top pt-2">
+                                    <ul class="list-group list-group-flush">
+                                    <li class="list-group-item p-2">Audult <span class="float-right"> {{ $bookingInfo['adult'] ?? 0 }}</span></li>
+                                        <li class="list-group-item p-2">Child <span class="float-right"> {{ $bookingInfo['child'] ?? 0 }}</span></li>
+                                        <li class="list-group-item p-2">No of Nights <span class="float-right"> {{ $bookingInfo['nights'] ?? 0}}</span></li>
+                                        <li class="list-group-item p-2">Total Charge <strong class="float-right"> {{ $room->getTotalCharge($bookingInfo['nights']) ?? 0}}</strong></li>
+                                    </ul>
+                                </div>
+                                <div class="card-text pt-2">
                                     <a href="{{ url('rooms/' . $room->id . '/confirm-booking?'). http_build_query($bookingInfo ?? [])}}" 
                                         class="btn btn-block btn-info">Confirm Booking</a>
-                                @else 
-                                    <span class="btn btn-block btn-info " disabled=true>Confirm Booking 22</span>
-                                @endif
-                            </div>
+                                </div>
+                            @else 
+                                <div class="card-text border-top pt-2">
+                                    <ul class="list-group list-group-flush">
+                                    <li class="list-group-item p-2">Audult Capacity <span class="float-right"> {{ $room->adult_capacity ?? 0 }}</span></li>
+                                        <li class="list-group-item p-2">Child Capacity <span class="float-right"> {{ $room->child_capacity ?? 0 }}</span></li>
+                                    </ul>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <div class="card mt-4 opc-80" >
