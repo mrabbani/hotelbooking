@@ -84,7 +84,7 @@
         </main>
         @show
 
-        <footer>
+        <footer class="d-print-none">
             <div class="text-center mt-4 pt-4 bg-black" >
                 <p class="border-top pt-4">Copyright © 2019 | All Rights Reserved</p>
             </div>

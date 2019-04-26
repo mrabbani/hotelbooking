@@ -43,10 +43,20 @@ class Room extends Model
         }
     }
 
+    public function scopeHotelType($query, ?string $type) 
+    {
+        if ($type) {
+            $query->whereHas('hotel', function($subQuery) use($type) {
+                $subQuery->where('type', $type);
+            });
+        }
+    }
+
     public function scopeAvailableForRequest($query, BookingRequest $request) 
     {
         $query->city($request->city)
             ->capacity($request->adult, $request->child)
+            ->hotelType($request->type)
             ->available($request->check_in, $request->check_out);
     }
 

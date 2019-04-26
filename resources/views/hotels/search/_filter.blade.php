@@ -4,8 +4,8 @@
         {!! Form::text('city', request('city') ?: null, [' required class' => 'form-control', 'list' => 'cityList']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('category', 'Category') !!}
-        {!! Form::Select('category', ['0' => 'Any', '1' => 'Hotel', '2' => 'Home'], request('category') ?: null, [' required class' => 'form-control']) !!}
+        {!! Form::label('type', 'Category') !!}
+        {!! Form::Select('type', ['0' => 'Any', '1' => 'Hotel', '2' => 'Home'], request('type') ?: null, [' required class' => 'form-control']) !!}
     </div>
     <div class="row">
         <div class="col-md-6">

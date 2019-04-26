@@ -47,6 +47,7 @@
                             <button type="submit" class="btn btn-primary">
                                 {{ __('Login') }}
                             </button>
+                            Doesn't have account? <a href="{{ url('register') }}"> Register here</a>
                         </div>
                     </form>
                 </div>

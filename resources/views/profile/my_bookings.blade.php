@@ -1,7 +1,17 @@
 @extends('layouts.master', ['pageTitle' => 'My Bookings'])
 
+@section('style')
+<style>
+@media print {
+    body , body>div, #app{
+        background-color: white !important;
+    }
+    
+}
+</style>    
+@endsection
 @section('content')
-    <div class="row">
+    <div class="row d-print-none">
         <div class="col-md-3">
             <div class="ml-2">
                 @include('profile._nav', ['menu' => 'booking'])
@@ -54,9 +64,9 @@
                                                     <i class="fa fa-cog"></i>
                                                 </a>
                                                 <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="{{url('rooms/' . $booking->room->id)}}" class="btn btn-info btn-sm">
-                                                    Room Details
-                                                </a>
+                                                    <a class="dropdown-item" href="{{url('rooms/' . $booking->room->id)}}" class="btn btn-info btn-sm">
+                                                        Room Details
+                                                    </a>
                                                 </div>
                                             </div>
                                         </td>
@@ -80,4 +90,7 @@
             </div>
         </div>
     </div>
+    {{-- @foreach($bookingList as $booking)
+        @include('profile._booking_invoice')
+    @endforeach --}}
 @endsection
