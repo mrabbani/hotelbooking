@@ -25,7 +25,7 @@
                     <div class="card-body">
                             <table class="table">
                                 <tr>
-                                    <th class="border-top-0  pt-0 px-2 pb-2">Accomodation</th>
+                                    <th class="border-top-0  pt-0 px-2 pb-2">Accommodation</th>
                                     <td class="border-top-0  pt-0 px-2 pb-2">{{ $booking->room->accommodation }}</td>
                                 </tr>
                                 <tr>
