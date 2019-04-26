@@ -23,12 +23,12 @@
     </div>
     <div class="form-group">
         {!! Form::label('check_in', 'Check In') !!}
-        {!! Form::date('check_in', request('check_in') ?: null, [' required class' => 'form-control date-picker']) !!}
+        {!! Form::date('check_in', request('check_in') ?: null, [' required class' => 'form-control date-picker', 'min' => Carbon\Carbon::now()->format('Y-m-d')]) !!}
     </div>
 
     <div class="form-group">
         {!! Form::label('check_out', 'Check Out') !!}
-        {!! Form::date('check_out', request('check_out') ?: null, [' required class' => 'form-control date-picker']) !!}
+        {!! Form::date('check_out', request('check_out') ?: null, [' required class' => 'form-control date-picker', 'min' => Carbon\Carbon::now()->format('Y-m-d')]) !!}
     </div>
     <div class="form-group">
         {!! Form::submit('Search', [' required class' => 'btn btn-primary']) !!}
