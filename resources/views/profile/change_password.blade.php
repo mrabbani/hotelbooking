@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master', ['pageTitle' => 'Change Password'])
 
 @section('content')
     <div class="row">

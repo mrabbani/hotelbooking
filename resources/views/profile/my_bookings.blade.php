@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master', ['pageTitle' => 'My Bookings'])
 
 @section('content')
     <div class="row">

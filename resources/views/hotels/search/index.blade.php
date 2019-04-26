@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master', ['pageTitle' => 'Search Result'])
 
 @section('content')
     <div class="row">

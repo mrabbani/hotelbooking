@@ -1,4 +1,5 @@
-@extends('layouts.master')
+@extends('layouts.master', ['pageTitle' => $room->hotel_name . ' | '  . $room->title])
+
 @section('styles')
 <style>
         #room-banner .carousel-item> img {
