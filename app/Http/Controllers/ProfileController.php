@@ -26,8 +26,9 @@ class ProfileController extends Controller
     public function myBookings(Request $request)
     {
         $bookingList = $request->user()->bookings()->latest()->paginate();
+        $user = $request->user();
 
-        return view('profile.my_bookings', compact('bookingList'));
+        return view('profile.my_bookings', compact('bookingList', 'user'));
     }
 
     public function changePassword(Request $request)
