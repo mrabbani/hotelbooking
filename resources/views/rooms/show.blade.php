@@ -105,8 +105,9 @@
                                     </ul>
                                 </div>
                                 <div class="card-text pt-2">
-                                    <a href="{{ url('rooms/' . $room->id . '/confirm-booking?'). http_build_query($bookingInfo ?? [])}}" 
-                                        class="btn btn-block btn-info">Confirm Booking</a>
+                                    <button type="button" class="btn btn-block btn-info" data-toggle="modal" data-target="#bookingModal">
+                                        Confirm Booking
+                                    </button>
                                 </div>
                             @else 
                                 <div class="card-text border-top pt-2">
@@ -134,7 +135,27 @@
             </div>
         </div>
     </div>
-
+    <!-- Modal -->
+        <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="bookingModalLabel">Booking Confirmation</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Do you want to book this room?
+            </div>
+            <div class="modal-footer">
+                <a href="{{ url('rooms/' . $room->id . '/confirm-booking?'). http_build_query($bookingInfo ?? [])}}" 
+                    class="btn btn-primary">Confirm </a>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <div class="modal fade room-images" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
