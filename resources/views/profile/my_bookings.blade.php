@@ -77,7 +77,7 @@
                                                     <i class="fa fa-cog"></i>
                                                 </a>
                                                 <div class="dropdown-menu">
-                                                    @if($booking->payment_status == App\Booking::UNPAID)
+                                                    @if($booking->payment_status == App\Booking::UNPAID && $booking->payment_status != App\Booking::CANCELLED)
                                                     <span class="dropdown-item">
                                                         @include('payment.stripe')
                                                     </span>

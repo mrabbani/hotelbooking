@@ -97,15 +97,15 @@
                             @if($booking->payment_status == App\Booking::PAID)
                                 <tr>
                                     <th class="border-top-0 ">Paid With</th>
-                                    <td class="border-top-0 text-left pl-4">{{ $booking->properties['payment']['card'] }}</td>
+                                    <td class="border-top-0 text-left pl-4">{{ $booking->properties['payment']['card'] ?? '' }}</td>
                                 </tr>
                                 <tr>
                                     <th class="border-top-0 border-top-0 p-2 ">Account E-mail</th>
-                                    <td class="border-top-0 border-top-0 p-2 text-left pl-4">{{ $booking->properties['payment']['email'] }}</td>
+                                    <td class="border-top-0 border-top-0 p-2 text-left pl-4">{{ $booking->properties['payment']['email'] ?? ''}}</td>
                                 </tr>
                                 <tr>
                                     <th class="border-top-0 border-top-0 p-2">Token</th>
-                                    <td class="border-top-0 border-top-0 p-2 text-left pl-4">{{ $booking->properties['payment']['token'] }}</td>
+                                    <td class="border-top-0 border-top-0 p-2 text-left pl-4">{{ $booking->properties['payment']['token'] ?? '' }}</td>
                                 </tr>
                             @endif
                         </table>

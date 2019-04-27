@@ -19,7 +19,7 @@ use App\Hotel;
 $factory->define(Hotel::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'city_id' => rand(1, 150),
+        'city_id' => rand(14, 21),
         'address' => $faker->address,
         'type' => rand(1, 2),
     ];

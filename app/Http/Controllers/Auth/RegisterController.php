@@ -64,6 +64,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $this->redirectTo = session('url.intended') ?? '/';
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
