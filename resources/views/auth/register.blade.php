@@ -35,7 +35,7 @@
 
                         <div class="form-group ">
                             <label for="mobile" >Mobile Number</label>
-                            <input id="mobile" maxlength=13 type="text" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile">
+                            <input id="mobile" maxlength=11 type="text" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" pattern="^(01[1,3,5,7,6,8,9])\d{8}" title="Invalid mobile number">
 
                             @if ($errors->has('mobile'))
                                 <span class="invalid-feedback" role="alert">

@@ -20,7 +20,7 @@ class ProfileController extends Controller
 
         $request->user()->update($request->only('name', 'mobile'));
 
-        return back();
+        return back()->with('msg', 'Account information is updated successfully');
     }
 
     public function myBookings(Request $request)
@@ -50,6 +50,6 @@ class ProfileController extends Controller
 
         $request->user()->update(['password' => Hash::make($request->password)]);
 
-        return redirect('profile');
+        return redirect('profile')->with('msg', 'Password is updated successfully');
     }
 }

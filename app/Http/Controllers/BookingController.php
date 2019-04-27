@@ -16,7 +16,7 @@ class BookingController extends Controller
         
         $room->bookings()->create($this->getBookingData($request, $room->price_per_night));
 
-        return redirect('profile/my-bookings');
+        return redirect('profile/my-bookings')->with('msg', 'Congratulation! Room is booked successfully.');
     }
 
     private function getBookingData(BookingRequest $request, $pricePerNight) 

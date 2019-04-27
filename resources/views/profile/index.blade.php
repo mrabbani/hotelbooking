@@ -8,7 +8,12 @@
             </div>
         </div>
         <div class="col-md-8">
+            <div class="ml-2">
+                @include('_success')
+            </div>
+
             <div class="p-3 ml-2 bg-white">
+
                 <div class="card-body">
                     <form method="POST" action="{{ url('profile/update') }}">
                         @csrf
@@ -44,7 +49,7 @@
                             <label for="mobile" class="col-md-4 col-form-label text-md-right">Mobile Number</label>
 
                             <div class="col-md-6">
-                                <input id="mobile" maxlength=13 type="text" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ $user->mobile }}" required autocomplete="mobile">
+                                <input id="mobile" maxlength=13 type="text" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ $user->mobile }}" required autocomplete="off" pattern="^(01[1,3,5,7,6,8,9])\d{8}" title="Invalid mobile number">
 
                                 @if ($errors->has('mobile'))
                                     <span class="invalid-feedback" role="alert">

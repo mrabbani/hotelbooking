@@ -8,6 +8,8 @@
             </div>
         </div>
         <div class="col-md-8">
+                @include('_success')
+
             <div class="p-3 ml-2 bg-white">
                 <div class="card-body">
                     <form method="POST" action="{{ url('profile/change-password') }}">
