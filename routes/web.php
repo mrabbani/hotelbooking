@@ -28,3 +28,5 @@ Route::post('profile/update', 'ProfileController@update');
 Route::get('profile/my-bookings', 'ProfileController@myBookings');
 Route::get('profile/change-password', 'ProfileController@changePassword');
 Route::post('profile/change-password', 'ProfileController@updatePassword');
+Route::get('payment/{booking_id}/pay', 'PaymentController@create');
+Route::post('payment/{booking_id}/pay', 'PaymentController@store');

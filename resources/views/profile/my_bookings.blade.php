@@ -77,6 +77,11 @@
                                                     <i class="fa fa-cog"></i>
                                                 </a>
                                                 <div class="dropdown-menu">
+                                                    @if($booking->payment_status == App\Booking::UNPAID)
+                                                    <span class="dropdown-item">
+                                                        @include('payment.stripe')
+                                                    </span>
+                                                    @endif
                                                     <a href="#" class="dropdown-item print-invoice" data-targetId="bookingInvoice{{$booking->id}}"  class="btn btn-info btn-sm">
                                                         Print Invoice
                                                     </a>

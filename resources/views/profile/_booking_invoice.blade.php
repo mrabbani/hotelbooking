@@ -89,12 +89,26 @@
                             </tr>
                         </table>
                         <h4 class="guest-title"><span> Payment Information</span></h4>
-                            <table class="table">
+                        <table class="table">
+                            <tr>
+                                <th class="border-top-0">Status</th>
+                                <th class="border-top-0 text-left pl-4">{{ $booking->payment_label }}</th>
+                            </tr>
+                            @if($booking->payment_status == App\Booking::PAID)
                                 <tr>
-                                    <th class="border-top-0">Status</th>
-                                    <td class="border-top-0 ">{{ $booking->payment_label }}</td>
+                                    <th class="border-top-0 ">Paid With</th>
+                                    <td class="border-top-0 text-left pl-4">{{ $booking->properties['payment']['card'] }}</td>
                                 </tr>
-                            </table>
+                                <tr>
+                                    <th class="border-top-0 border-top-0 p-2 ">Account E-mail</th>
+                                    <td class="border-top-0 border-top-0 p-2 text-left pl-4">{{ $booking->properties['payment']['email'] }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="border-top-0 border-top-0 p-2">Token</th>
+                                    <td class="border-top-0 border-top-0 p-2 text-left pl-4">{{ $booking->properties['payment']['token'] }}</td>
+                                </tr>
+                            @endif
+                        </table>
                     </div>
                 </div>
             </div>

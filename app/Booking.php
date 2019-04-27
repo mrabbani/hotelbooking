@@ -21,6 +21,8 @@ class Booking extends Model
         'check_out',
         'price_per_night',
         'properties',
+        'payment_status',
+        'status'
     ];
 
     public $dates = [

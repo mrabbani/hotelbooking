@@ -52,4 +52,11 @@ class ProfileController extends Controller
 
         return redirect('profile')->with('msg', 'Password is updated successfully');
     }
+
+    public function pay(Request $request)
+    {
+        $user = $request->user();
+        
+        return view('payment.stripe');
+    }
 }
