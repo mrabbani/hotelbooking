@@ -50,32 +50,32 @@
                         <div class="card-text mt-3 border-top pt-3">
                                 {{$room->description }}
                         </div>
-                        @if (count($amenities = $room->amenities ?? []))
-                            <div class="card-text mt-3  pt-3">
-                                <h4 class="border-bottom"> Amenities</h4>
-                                @foreach($amenities as $key => $amItmes)
-                                    <div class="media mt-3">
-                                        <div class="mr-4 w-25 pl-3 " >
-                                            <h6 class="opc-85"> {{ucwords($key)}}</h5>
+                            @if (count($amenities = $room->amenities ?? []))
+                                <div class="card-text mt-3  pt-3">
+                                    <h4 class="border-bottom"> Amenities</h4>
+                                    @foreach($amenities as $key => $amItmes)
+                                        <div class="media mt-3">
+                                            <div class="mr-4 w-25 pl-3 " >
+                                                <h6 class="opc-85"> {{ucwords($key)}}</h5>
+                                            </div>
+                                            <div class="media-body">
+                                                <table class="table table-borderless">
+                                                    <tbody>
+                                                        @foreach($amItmes as $value)
+                                                        <tr>
+                                                            <td class="pt-0"> 
+                                                                <span class="text-muted font-85 mr-2"><i class="fa fa-align-right"> </i></span> 
+                                                                    {{$value}}
+                                                            </td>
+                                                        </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
-                                        <div class="media-body">
-                                            <table class="table table-borderless">
-                                                <tbody>
-                                                    @foreach($amItmes as $value)
-                                                    <tr>
-                                                        <td class="pt-0"> 
-                                                            <span class="text-muted font-85 mr-2"><i class="fa fa-align-right"> </i></span> 
-                                                                {{$value}}
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                @endforeach 
-                            </div>
-                        @endif
+                                    @endforeach 
+                                </div>
+                            @endif
                     </div>
                 </div>
             </div>

@@ -23,10 +23,16 @@ Route::get('hotels/search', 'HotelsSearchController@index');
 Route::get('rooms/{room_id}', 'RoomsController@show');
 Route::get('rooms/{room_id}/confirm-booking', 'BookingController@store')->middleware('auth');
 
-Route::get('profile', 'ProfileController@index');
-Route::post('profile/update', 'ProfileController@update');
-Route::get('profile/my-bookings', 'ProfileController@myBookings');
-Route::get('profile/change-password', 'ProfileController@changePassword');
-Route::post('profile/change-password', 'ProfileController@updatePassword');
-Route::get('payment/{booking_id}/pay', 'PaymentController@create');
-Route::post('payment/{booking_id}/pay', 'PaymentController@store');
+Route::group(['middleware' => ['auth']], function() {
+
+    Route::get('profile', 'ProfileController@index');
+    Route::post('profile/update', 'ProfileController@update');
+    Route::get('profile/my-bookings', 'ProfileController@myBookings');
+    Route::get('profile/change-password', 'ProfileController@changePassword');
+    Route::post('profile/change-password', 'ProfileController@updatePassword');
+    Route::get('payment/{booking_id}/pay', 'PaymentController@create');
+    Route::post('payment/{booking_id}/pay', 'PaymentController@store');
+
+    Route::resource('administration/hotels', 'Admin\HotelController');
+    Route::resource('administration/rooms', 'Admin\RoomController');
+});

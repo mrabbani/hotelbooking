@@ -19,6 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('fontawesome/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('datatables/datatables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     @yield('styles')
@@ -92,6 +93,12 @@
     </div>
 
     <script src="{{ asset('fontawesome/all.min.js') }}" defer></script>
+    <script src="{{ asset('datatables/datatables.min.js') }}"></script>
+    @section('datatables')
+        <script>
+            $('.dataTable').DataTable();
+        </script>
+    @show
     @yield('script')
 
 </body>
