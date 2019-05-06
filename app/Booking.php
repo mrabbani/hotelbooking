@@ -13,6 +13,7 @@ class Booking extends Model
     const CANCELLED = 3;
     const UNPAID = 0;
     const PAID = 1;
+    const REFUNDED = 2;
 
     protected $fillable = [
         'user_id',
@@ -62,6 +63,7 @@ class Booking extends Model
         $labels = [
             self::UNPAID => 'Unpaid',
             self::PAID => 'Paid',
+            self::REFUNDED => 'Refunded',
         ];
 
         return $labels[$this->payment_status] ?? '';

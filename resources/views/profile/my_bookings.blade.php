@@ -1,25 +1,5 @@
 @extends('layouts.master', ['pageTitle' => 'My Bookings'])
 
-@section('styles')
-<style>
-@media print {
-    body , body>div, #app{
-        background-color: white !important;
-    }
-}
-
-    .guest-title { 
-        width:100%; 
-        text-align:center; 
-        border-bottom: 1px solid #dee2e6; 
-        line-height: 0.1em; margin:10px 0 20px; 
-    } 
-    .guest-title span { 
-        background:#fff; 
-        padding: 0 10px; 
-    }
-</style>    
-@endsection
 @section('content')
     <div class="row d-print-none">
         <div class="col-md-3">

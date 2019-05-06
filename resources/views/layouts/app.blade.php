@@ -54,6 +54,25 @@
                                 </li>
                             @endif
                         @else
+                            @if(Auth::user()->type == \App\User::ADMIN)
+                                <li class="nav-item">
+                                    <a class="nav-link {{ ($menu ?? '') == 'booking' ? 'active': '' }} " href="{{ url('administration/bookings') }}">Bookings</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle {{ ($menu ?? '') == 'admin' ? 'active': '' }} " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Administration <span class="caret"></span>
+                                    </a>
+    
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ url('administration/rooms') }}">
+                                            Rooms
+                                        </a>
+                                        <a class="dropdown-item" href="{{ url('administration/hotels') }}">
+                                            Hotels
+                                        </a>
+                                    </div>
+                                </li>
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

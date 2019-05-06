@@ -35,4 +35,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::resource('administration/hotels', 'Admin\HotelController');
     Route::resource('administration/rooms', 'Admin\RoomController');
+    Route::get('administration/bookings', 'Admin\BookingController@index');
+    Route::post('administration/bookings/{booking_id}/cancel', 'Admin\BookingController@cancel');
+    Route::post('administration/bookings/{booking_id}/mark-as-paid', 'Admin\BookingController@markAsPaid');
+    Route::post('administration/bookings/{booking_id}/refund', 'Admin\BookingController@refund');
 });
