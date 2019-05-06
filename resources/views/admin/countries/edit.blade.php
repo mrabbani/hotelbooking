@@ -7,10 +7,11 @@
 
     <div class="card">
         <div class="card-header">
-            <a href="{{ url('administration/rooms') }}">Edit Room</a>
+            <a href="{{ url('administration/countries') }}">Edit Country</a>
+            
         </div>
         <div class="card-body">
-            @include('admin.rooms._form')
+            @include('admin.countries._form')
         </div>
     </div>
 </div>

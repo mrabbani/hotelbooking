@@ -7,9 +7,9 @@
 
     <div class="card">
         <div class="card-header">
-            <a href="{{ url('administration/hotels') }}">Hotel List</a>
+            <a href="{{ url('administration/cities') }}">City List</a>
             <span class="float-right">
-                <a href="{{ url('administration/hotels/create') }}" class="btn btn-primary btn-sm">New Hotel</a>
+                <a href="{{ url('administration/cities/create') }}" class="btn btn-primary btn-sm">New City</a>
             </span>
         </div>
 
@@ -19,8 +19,7 @@
                     <tr>
                         <th>SL</th>
                         <th>Name</th>
-                        <th>Type</th>
-                        <th>Address</th>
+                        <th>Country</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -34,10 +33,9 @@
                         <tr>
                             <td>{{ $counter++ }}</td>
                             <td>{{ $item->name }}</td>
-                            <td>{{ $item->getType() ?? '' }}</td>
-                            <td>{{ $item->getAddress() ?? '' }}</td>
+                            <td>{{ $item->country->name ?? '' }}</td>
                             <td>
-                                <a href="{{ url('administration/hotels/' . $item->id . '/edit') }}">Edit</a>
+                                <a href="{{ url('administration/cities/' . $item->id . '/edit') }}">Edit</a>
 
                                 <a class="text-danger" href="#" data-toggle="modal" data-target="#deleteModal{{$item->id}}">
                                     Delete
@@ -57,7 +55,7 @@
                                             Delete <strong>{{ $item->name }} </strong>?
                                             </div>
                                             <div class="modal-footer">
-                                                {!! Form::open(['url' => 'administration/hotels/' . $item->id, 'method' => 'delete']) !!}
+                                                {!! Form::open(['url' => 'administration/cities/' . $item->id, 'method' => 'delete']) !!}
                                                 <button type="submit" class="btn btn-danger">Yes</button>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                             {!! Form::close() !!}
@@ -66,7 +64,6 @@
                                     </div>
                                 </div>
                                 <!-- End of Delete Modal -->
-
                             </td>
                         </tr>
                     @endforeach

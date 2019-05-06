@@ -7,10 +7,10 @@
 
     <div class="card">
         <div class="card-header">
-            <a href="{{ url('administration/rooms') }}">Edit Room</a>
+            <a href="{{ url('administration/users') }}">Edit user type of <strong> {{$item->name}} </strong></a>
         </div>
         <div class="card-body">
-            @include('admin.rooms._form')
+            @include('admin.users._form')
         </div>
     </div>
 </div>

@@ -70,6 +70,15 @@
                                         <a class="dropdown-item" href="{{ url('administration/hotels') }}">
                                             Hotels
                                         </a>
+                                        <a class="dropdown-item" href="{{ url('administration/cities') }}">
+                                            Cities
+                                        </a>
+                                        <a class="dropdown-item" href="{{ url('administration/countries') }}">
+                                            Countries
+                                        </a>
+                                        <a class="dropdown-item" href="{{ url('administration/users') }}">
+                                            Users
+                                        </a>
                                     </div>
                                 </li>
                             @endif

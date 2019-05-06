@@ -7,7 +7,7 @@
 
     <div class="card">
         <div class="card-header">
-            <a href="{{ url('administration/rooms') }}">Rooms</a>
+            <a href="{{ url('administration/rooms') }}">Room List</a>
             <span class="float-right">
                 <a href="{{ url('administration/rooms/create') }}" class="btn btn-primary btn-sm">New Room</a>
             </span>
